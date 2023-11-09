@@ -1,0 +1,8 @@
+[+] Pasos
+    1) Cargar bibliotecas
+    2) Cargar corpus
+    3) Normalizar texto (tokenizar, lematizar, stopWords)
+        3.1) Guardar resultados
+    4) Generar representación de texto
+    5) Representación de texto con tf-idf
+    6) Separar en entrenamiento y prueba(80/20)
