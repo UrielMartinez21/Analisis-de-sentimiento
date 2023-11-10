@@ -1,8 +1,12 @@
 [+] Pasos
-    1) Cargar bibliotecas
-    2) Cargar corpus
-    3) Normalizar texto (tokenizar, lematizar, stopWords)
-        3.1) Guardar resultados
-    4) Generar representación de texto
-    5) Representación de texto con tf-idf
-    6) Separar en entrenamiento y prueba(80/20)
+    1) Cargar bibliotecas                                           OK
+    2) Cargar corpus                                                OK
+    3) Normalizar texto (tokenizar, lematizar, stopWords)           OK
+        3.1) Guardar resultados                                     
+    4) Separar en entrenamiento y prueba(80/20)                     OK
+    5) Representación de texto con tf-idf                           OK
+    6) Dividir entrenamiento en 5 subconjuntos                      OK
+    7) Probar diferentes algoritmos con los subconjuntos            PROCESO
+    8) Entrenar el conjunto train con modelo seleccionado
+    9) Usar modelo entrenado para predecir 
+    10) Calcular el f1 macro        
