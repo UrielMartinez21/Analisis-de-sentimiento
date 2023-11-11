@@ -1,1 +1,2 @@
 MultinomialNB: 16.0%
+LogisticRegression: 41.0%
