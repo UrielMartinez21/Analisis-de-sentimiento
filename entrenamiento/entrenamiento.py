@@ -17,10 +17,10 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
 
 # -----------------------| Importar rasgos y clases |----------------------- #
-with open("normalizacion_texto/lista_contenido_normalizado.pkl", "rb") as f:
+with open("../normalizacion_texto/lista_contenido_normalizado.pkl", "rb") as f:
     corpus = pickle.load(f)
 
-data = pd.read_excel('apoyo/Rest_Mex_2022.xlsx')
+data = pd.read_excel('../apoyo/Rest_Mex_2022.xlsx')
 y = data['Polarity'].values
 
 # -----------------------| Rasgos y pruebas |----------------------- #
@@ -66,5 +66,5 @@ for entrenamiento, prueba in skf.split(X_train_tfidf, y_train):
 print(f"F1 macro: {round(statistics.mean(f1_macro), 2)*100}%")
 
 # --> Guardar resultados en txt uno sobre otro
-with open("resultados/resultados.txt", "a") as f:
+with open("resultados.txt", "a") as f:
     f.write(f"KNeighborsClassifier: {round(statistics.mean(f1_macro), 2)*100}%\n")
