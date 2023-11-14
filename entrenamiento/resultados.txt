@@ -2,3 +2,4 @@ MultinomialNB: 16.0%
 LogisticRegression: 41.0%
 RandomForestClassifier: 16.0%
 KNeighborsClassifier: 34.0%
+MLPClassifier: 43.0%

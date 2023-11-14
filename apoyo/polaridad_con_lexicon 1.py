@@ -11,7 +11,7 @@ from scipy.sparse import hstack
 def load_sel():
 	#~ global lexicon_sel
 	lexicon_sel = {}
-	input_file = open('../Lexicons/SEL_full.txt', 'r')
+	input_file = open('SEL_full.txt', 'r')
 	for line in input_file:
 		#Las líneas del lexicon tienen el siguiente formato:
 		#abundancia	0	0	50	50	0.83	Alegría
