@@ -9,32 +9,38 @@ from scipy.sparse import hstack
 
 
 def load_sel():
-	#~ global lexicon_sel
 	lexicon_sel = {}
-	input_file = open('SEL_full.txt', 'r')
+	input_file = open('apoyo/SEL_full.txt', 'r')
+
+	# Para cada línea del archivo
 	for line in input_file:
 		#Las líneas del lexicon tienen el siguiente formato:
 		#abundancia	0	0	50	50	0.83	Alegría
 		
-		palabras = line.split("\t")
-		palabras[6]= re.sub('\n', '', palabras[6])
-		pair = (palabras[6], palabras[5])
-		if lexicon_sel:
-			if palabras[0] not in lexicon_sel:
-				lista = [pair]
-				lexicon_sel[palabras[0]] = lista
+		palabras = line.split("\t")					# Esto hara que se separe la linea en una lista de palabras
+		palabras[6]= re.sub('\n', '', palabras[6])	# Esto hara que se elimine el salto de linea
+		pair = (palabras[6], palabras[5])			# Esto hara que se guarde la palabra y su valor de polaridad
+
+		if lexicon_sel:								# Si el diccionario no esta vacio
+			if palabras[0] not in lexicon_sel:		# Si la palabra no esta en el diccionario
+				lista = [pair]						# Se crea una lista con la palabra y su valor de polaridad
+				lexicon_sel[palabras[0]] = lista	# Se agrega la lista al diccionario
 			else:
-				lexicon_sel[palabras[0]].append (pair)
-		else:
-			lista = [pair]
-			lexicon_sel[palabras[0]] = lista
-	input_file.close()
+				lexicon_sel[palabras[0]].append (pair)	# Si la palabra ya esta en el diccionario, se agrega la palabra y su valor de polaridad a la lista
+		else:										# Si el diccionario esta vacio
+			lista = [pair]							# Se crea una lista con la palabra y su valor de polaridad
+			lexicon_sel[palabras[0]] = lista		# Se agrega la lista al diccionario
+
+	input_file.close()								# Se cierra el archivo
 	del lexicon_sel['Palabra']; #Esta llave se inserta porque es parte del encabezado del diccionario, por lo que se requiere eliminar
 	#Estructura resultante
 		#'hastiar': [('Enojo\n', '0.629'), ('Repulsi\xf3n\n', '0.596')]
-	return lexicon_sel
+	return lexicon_sel								# Se regresa el diccionario
 
 def getSELFeatures(cadenas, lexicon_sel):
+	"""
+	Esta función recibe una lista de cadenas y un diccionario con el lexicon SEL
+	"""
 	#'hastiar': [('Enojo\n', '0.629'), ('Repulsi\xf3n\n', '0.596')]
 	features = []
 	for cadena in cadenas:

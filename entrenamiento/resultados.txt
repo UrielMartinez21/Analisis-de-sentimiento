@@ -3,3 +3,4 @@ LogisticRegression: 41.0%
 RandomForestClassifier: 16.0%
 KNeighborsClassifier: 34.0%
 MLPClassifier: 43.0%
+XGBoost: 33.0%
