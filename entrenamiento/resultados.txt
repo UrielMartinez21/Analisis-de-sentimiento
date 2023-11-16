@@ -19,3 +19,11 @@ LogisticRegression: 41.0%
 RandomForestClassifier: 16.0%
 KNeighborsClassifier: 34.0%
 MLPClassifier: 44.0%
+
+-------------------| Frecuencia |-------------------
+MultinomialNB: 31.0%
+LogisticRegression: 46.0%
+LogisticRegression: 46.0%
+RandomForestClassifier: 16.0%
+KNeighborsClassifier: 31.0%
+MLPClassifier: 44.0%
