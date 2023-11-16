@@ -1,3 +1,4 @@
+# -------------------------------| Bibliotecas |-------------------------------
 #os
 import os.path
 import sys
@@ -7,7 +8,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 import numpy as np
 from scipy.sparse import hstack
 
-
+# -------------------------------| Funciones |-------------------------------
 def load_sel():
 	lexicon_sel = {}
 	input_file = open('apoyo/SEL_full.txt', 'r')
@@ -80,13 +81,10 @@ def getSELFeatures(cadenas, lexicon_sel):
 		dic['acumuladonegative'] = dic['__enojo__'] + dic['__miedo__'] + dic['__repulsion__'] + dic['__tristeza__']
 		
 		features.append (dic)
-	
-	
 	return features
 
 if __name__=='__main__':
-	
-	#Load lexicons
+	# ---------------------------| Crear archivo auxiliar |-------------------------------
 	if (os.path.exists('lexicon_sel.pkl')):
 		lexicon_sel_file = open ('lexicon_sel.pkl','rb')
 		lexicon_sel = pickle.load(lexicon_sel_file)
@@ -96,7 +94,7 @@ if __name__=='__main__':
 		pickle.dump(lexicon_sel, lexicon_sel_file)
 		lexicon_sel_file.close()
 	
-	#~ print (lexicon_sel)
+	# ---------------------------| Polaridad |-------------------------------
 	cadena1 = 'el mejor vista de guanajuato_es uno mirador precioso y con el mejor vista de el ciudad de guanajuato . el monumento ser impresionante . frente_a el monumento ( por el parte de atrás de el pípila ) haber uno serie de local en donde vender artesanía ... si te gustar algo de ahí , comprar . a mí me pasar que ver algo y no el comprar pensar que el ver más tarde en otro lado y no ser así . te recomer que llegar hasta ahí en taxi , ser muy económico , porque como estar en uno lugar muy alto , ser muy cansar llegar caminar , aunque no estar lejos_de el centro . peroooo ... bajar caminar por el mini callejón . ¡ ser algo precioso ! te llevar directamente por uno lado de el teatro_juárez . '
 	cadena2 = '¡ malo ! no gastar tu dinero ahí malo condición , deplorable . definitivamente no gastar tu dinero ahí , mejor ver a gastar en dulce en el tienda de la catrina .'
 	cadenas = []
@@ -104,25 +102,37 @@ if __name__=='__main__':
 	cadenas. append(cadena2)
 	
 	polaridad = getSELFeatures(cadenas, lexicon_sel)
-	print (polaridad)
+	print("---------------------------------------------------------")
+	for x in polaridad:
+		print(x)
+	print("---------------------------------------------------------")
 	
+	# ---------------------------| Crear representación vectorial |-------------------------------
 	vectorizador = CountVectorizer()
 	X = vectorizador.fit_transform(cadenas)
 	print ('Vectorizado')
 	print (X.toarray())
 	print(vectorizador.get_feature_names_out())
 	
+	# ---------------------------| Manejo de polaridad |-------------------------------
 	polaridad_cadena_1_pos = np.array([polaridad[0]['acumuladopositivo']])
 	polaridad_cadena_1_neg = np.array([polaridad[0]['acumuladonegative']])
 	polaridad_cadena_1 = np.concatenate((polaridad_cadena_1_pos, polaridad_cadena_1_neg), axis=0)
+
 	print (polaridad_cadena_1)
+	
 	polaridad_cadena_2_pos = np.array([polaridad[1]['acumuladopositivo']])
 	polaridad_cadena_2_neg = np.array([polaridad[1]['acumuladonegative']])
 	polaridad_cadena_2 = np.concatenate((polaridad_cadena_2_pos, polaridad_cadena_2_neg), axis=0)
+	
 	print (polaridad_cadena_2)
+	
 	polaridad_cadenas = np.stack((polaridad_cadena_1, polaridad_cadena_2))
+	
 	print ('Polaridad')
 	print (polaridad_cadenas)
+	
 	vectorizado_con_polaridad = hstack([X,polaridad_cadenas]).toarray()
+	
 	print ('Vectorizado + polaridad')
 	print (vectorizado_con_polaridad)
