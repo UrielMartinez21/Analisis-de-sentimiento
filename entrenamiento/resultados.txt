@@ -27,3 +27,4 @@ Promedio: 33.6 %
 -------------------| Binario |-------------------
 MultinomialNB: 28.000000000000004%
 LogisticRegression: 45.0%
+RandomForestClassifier: 28.000000000000004%
