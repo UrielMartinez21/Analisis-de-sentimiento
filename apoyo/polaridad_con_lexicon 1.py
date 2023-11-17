@@ -111,28 +111,32 @@ if __name__=='__main__':
 	vectorizador = CountVectorizer()
 	X = vectorizador.fit_transform(cadenas)
 	print ('Vectorizado')
-	print (X.toarray())
-	print(vectorizador.get_feature_names_out())
+	# print (X.toarray())
+	# print(vectorizador.get_feature_names_out())
 	
 	# ---------------------------| Manejo de polaridad |-------------------------------
+	# --> Cadena 1
 	polaridad_cadena_1_pos = np.array([polaridad[0]['acumuladopositivo']])
 	polaridad_cadena_1_neg = np.array([polaridad[0]['acumuladonegative']])
 	polaridad_cadena_1 = np.concatenate((polaridad_cadena_1_pos, polaridad_cadena_1_neg), axis=0)
-
+	print("-----------------| Polaridad cadena 1 |-----------------")
 	print (polaridad_cadena_1)
 	
+	# --> Cadena 2
 	polaridad_cadena_2_pos = np.array([polaridad[1]['acumuladopositivo']])
 	polaridad_cadena_2_neg = np.array([polaridad[1]['acumuladonegative']])
 	polaridad_cadena_2 = np.concatenate((polaridad_cadena_2_pos, polaridad_cadena_2_neg), axis=0)
-	
+	print("-----------------| Polaridad cadena 2 |-----------------")
 	print (polaridad_cadena_2)
 	
+	# --> Concatenar cadenas
 	polaridad_cadenas = np.stack((polaridad_cadena_1, polaridad_cadena_2))
 	
 	print ('Polaridad')
 	print (polaridad_cadenas)
-	
+
+	# ---------------------------| Representación de texto |-------------------------------
 	vectorizado_con_polaridad = hstack([X,polaridad_cadenas]).toarray()
-	
+
 	print ('Vectorizado + polaridad')
 	print (vectorizado_con_polaridad)

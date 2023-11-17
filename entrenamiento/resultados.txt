@@ -1,11 +1,3 @@
--------------------| TF-IDF |-------------------
-MultinomialNB: 16.0%
-LogisticRegression: 41.0%
-RandomForestClassifier: 16.0%
-KNeighborsClassifier: 34.0%
-MLPClassifier: 43.0%
-XGBoost: 33.0%
-
 -------------------| Binario |-------------------
 MultinomialNB: 28.000000000000004%
 LogisticRegression: 45.0%
@@ -21,7 +13,7 @@ RandomForestClassifier: 16.0%
 KNeighborsClassifier: 34.0%
 MLPClassifier: 44.0%
 
-Promedio: 30.2
+Promedio: 30.2 %
 -------------------| Frecuencia |-------------------
 MultinomialNB: 31.0%
 LogisticRegression: 46.0%
@@ -30,4 +22,8 @@ RandomForestClassifier: 16.0%
 KNeighborsClassifier: 31.0%
 MLPClassifier: 44.0%
 
-Promedio: 33.6
+Promedio: 33.6 %
+----------------------------------------------------------------------------------------------
+-------------------| Binario |-------------------
+MultinomialNB: 28.000000000000004%
+LogisticRegression: 45.0%
