@@ -22,7 +22,7 @@ MLPClassifier: 44.0%
 
 ----------------------------------------------------------------------------------------------
 
--------------------| Binario |-------------------
+-------------------| Binario: 33 % |-------------------
 MultinomialNB: 28.000000000000004%
 LogisticRegression: 45.0 %
 RandomForestClassifier: 16.0 %
@@ -30,14 +30,18 @@ KNeighborsClassifier: 30.0 %
 MLPClassifier: 46.0 %
 GradientBoostingClassifier: 34.0 %
 
--------------------| Frecuencia |-------------------
+-------------------| Frecuencia: 34 % |-------------------
 MultinomialNB: 32.0 %
 LogisticRegression: 46.0 %
 RandomForestClassifier: 16.0 %
 KNeighborsClassifier: 31.0 %
 MLPClassifier: 45.0 %
 
--------------------| TF-IDF |-------------------
+-------------------| TF-IDF: 32.2 % |-------------------
 MultinomialNB: 27.0 %
 LogisticRegression: 41.0 %
 LogisticRegression: 41.0 %
+RandomForestClassifier: 16.0 %
+KNeighborsClassifier: 33.0 %
+MLPClassifier: 44.0 %
+GradientBoostingClassifier: 35.0 %
