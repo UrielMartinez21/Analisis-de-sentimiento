@@ -38,3 +38,6 @@ KNeighborsClassifier: 31.0 %
 MLPClassifier: 45.0 %
 
 -------------------| TF-IDF |-------------------
+MultinomialNB: 27.0 %
+LogisticRegression: 41.0 %
+LogisticRegression: 41.0 %
