@@ -22,17 +22,17 @@ class data_set_attraction:
 		self.X_test = X_test
 		self.y_test = y_test
 
-if not (os.path.exists('corpus_attraction.pkl')):
+if not (os.path.exists('apoyo/corpus_attraction.pkl')):
 	print ('no se ha generado el corpus lematizado')
 else:
-	corpus_file = open ('corpus_attraction.pkl','rb')
+	corpus_file = open ('apoyo/corpus_attraction.pkl','rb')
 	corpus_attraction = pickle.load(corpus_file)
 	corpus_file.close()
 
-if not (os.path.exists('corpus_polarity.pkl')):
+if not (os.path.exists('apoyo/corpus_polarity.pkl')):
 	print ('no se ha generado el corpus lematizado')
 else:
-	corpus_file = open ('corpus_polarity.pkl','rb')
+	corpus_file = open ('apoyo/corpus_polarity.pkl','rb')
 	corpus_polarity = pickle.load(corpus_file)
 	corpus_file.close()
 
@@ -43,8 +43,13 @@ vectorizador_binario = CountVectorizer(binary=True)
 vectorizador_binario_fit = vectorizador_binario.fit(corpus_attraction.X_train)
 X_train = vectorizador_binario_fit.transform(corpus_attraction.X_train)
 y_train = corpus_attraction.y_train
-print (vectorizador_binario.get_feature_names_out())
-print (len(vectorizador_binario.get_feature_names_out()))
+# print (vectorizador_binario.get_feature_names_out())
+# print (len(vectorizador_binario.get_feature_names_out()))
+# Imprimir solo los primeros 10 nombres de características
+print(vectorizador_binario.get_feature_names_out()[:10])
+
+# O evitar imprimir caracteres no ASCII
+print([feature for feature in vectorizador_binario.get_feature_names_out() if feature.isascii()])
 print (X_train.shape)#sparse matrix
 # ~ clf = LogisticRegression()
 # ~ clf = LogisticRegression(max_iter=10000)
@@ -68,9 +73,14 @@ clf_polarity = LogisticRegression(max_iter=10000)
 clf_polarity.fit(X_train, y_train_polarity)
 y_test = corpus_polarity.y_test
 y_pred = clf_polarity.predict(X_test)
+print("-------------------------| Evaluar rendimiento |-------------------------")
 print (y_pred)
 print(accuracy_score(y_test, y_pred))
+
+print("-------------------------| Matriz de confusión |-------------------------")
 print(confusion_matrix(y_test, y_pred,labels=[1,2,3,4,5]))
+
+print("-------------------------| Reporte |-------------------------")
 target_names = ['1','2','3','4','5']
 print(classification_report(y_test, y_pred, target_names=target_names))
 

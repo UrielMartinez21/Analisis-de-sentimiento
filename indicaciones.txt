@@ -6,7 +6,7 @@
     4) Separar en entrenamiento y prueba(80/20)                     OK
     5) Representación de texto con tf-idf                           OK
     6) Dividir entrenamiento en 5 subconjuntos                      OK
-    7) Probar diferentes algoritmos con los subconjuntos            PROCESO
+    7) Probar diferentes algoritmos con los subconjuntos            OK
     8) Entrenar el conjunto train con modelo seleccionado
     9) Usar modelo entrenado para predecir 
     10) Calcular el f1 macro        
