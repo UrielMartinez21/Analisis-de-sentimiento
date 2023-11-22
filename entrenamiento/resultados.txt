@@ -1,10 +1,10 @@
 -------------------| Binario |-------------------
 |--> Promedio: 32.4 %                       |--> Promedio: 33 %
 
-|MultinomialNB: 28.000000000000004%         |MultinomialNB: 28.000000000000004%
-|LogisticRegression: 45.0%                  |LogisticRegression: 45.0 %
+|MultinomialNB: 28.000000000000004%         |MultinomialNB: 45%
+|LogisticRegression: 45.0%                  |LogisticRegression: 46.0 %
 |RandomForestClassifier: 16.0%              |RandomForestClassifier: 16.0 %
-|KNeighborsClassifier: 28.000000000000004%  |KNeighborsClassifier: 30.0 %
+|KNeighborsClassifier: 28.000000000000004%  |KNeighborsClassifier: 31.0 %
 |MLPClassifier: 45.0%                       |MLPClassifier: 46.0 %
 |GradientBoostingClassifier:                |GradientBoostingClassifier: 34.0 %
 
